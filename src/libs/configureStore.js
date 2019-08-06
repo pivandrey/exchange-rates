@@ -14,11 +14,11 @@ export const store = createStore(
 );
 
 store.subscribe(() => {
-    sessionStorage.setItem(
+  sessionStorage.setItem(
     'reduxState',
     JSON.stringify({
       markers: store.getState().markers,
-      tags: store.getState().tags,
+      tags: store.getState().tags
     })
   );
 });
