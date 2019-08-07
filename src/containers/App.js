@@ -1,23 +1,41 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { fetchCurrencies } from '../reducers/currencies/actions';
+import Home from '../pages/Home';
+import Exchange from '../pages/Exchange';
+
+class App extends React.Component {
+  componentDidMount() {
+    const { fetchCurrencies } = this.props;
+    fetchCurrencies();
+  }
+
+  render() {
+    return (
+      <div className="root">
+        <div className="root_content">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/exchange" component={Exchange} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      fetchCurrencies
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

@@ -1,0 +1,23 @@
+.favorite-currencies {
+  background: $color0;
+  border-radius: $radius;
+  padding: 27px 21px;
+  margin-bottom: 95px;
+}
+
+.favorite-currencies__header {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $titleText;
+  line-height: 53px;
+  color: $color2;
+  margin-bottom: 40px;
+}
+
+.favorite-currencies__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

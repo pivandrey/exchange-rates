@@ -1,0 +1,46 @@
+.history {
+  border-radius: $radius;
+  padding: 27px 21px;
+  background-color: $color2;
+  position: relative;
+}
+
+.history__header {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $titleText;
+  line-height: 53px;
+  color: $color0;
+  margin-bottom: 40px;
+}
+
+.history__content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 34px;
+}
+
+.history__link {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $primaryText;
+  line-height: 35px;
+  background: $color0;
+  border-radius: 50px;
+  display: flex;
+  padding: 11px 59px;
+  width: 365px;
+  box-sizing: border-box;
+  > a {
+    color: $color5;
+    text-decoration: none;
+  }
+}
+
+.history__image {
+  position: absolute;
+  top: -150px;
+  right: 0;
+}

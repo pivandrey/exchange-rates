@@ -1,0 +1,39 @@
+.input-select-wrapper {
+  flex-basis: 45%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  &::after {
+    content: '▼';
+    padding: 0 8px;
+    font-size: 32px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+    color: $color9;
+  }
+}
+
+.input-select {
+  border: 2px solid $color7;
+  box-sizing: border-box;
+  border-radius: $radius;
+  padding: 14px 35px 14px 22px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $primaryText;
+  line-height: 35px;
+  color: $color7;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
