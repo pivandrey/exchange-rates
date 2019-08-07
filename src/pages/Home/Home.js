@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from '../../components/Header';
-import FavoriteCurrencies from '../FavoriteCurrencies';
-import History from '../History';
+import FavoriteCurrencies from '../../containers/FavoriteCurrencies';
+import History from '../../containers/History';
 
 class Home extends React.Component {
   render() {

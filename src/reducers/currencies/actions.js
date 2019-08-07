@@ -2,7 +2,7 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 
 import * as TYPES from './types';
-import { CURRENCIES_URL, FAVORITE_CURRENCIES } from '../../constants';
+import { CURRENCIES_URL, FAVORITE_CURRENCIES, RUB } from '../../constants';
 
 export const addCurrencies = createAction(TYPES.ADD_CURRENCIES);
 export const addFavoriteCurrencies = createAction(
@@ -15,6 +15,6 @@ export const fetchCurrencies = () => async dispatch => {
 
   const favorites = FAVORITE_CURRENCIES.map(currency => Valute[currency]);
 
-  dispatch(addCurrencies(Valute));
+  dispatch(addCurrencies({ RUB, ...Valute }));
   dispatch(addFavoriteCurrencies(favorites));
 };

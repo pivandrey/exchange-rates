@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Input = ({ onChange, placeholder, name }) => {
+const Input = ({ onChange, name, emptyValue }) => {
   return (
     <input
       name={name}
       type="text"
       className="input"
-      placeholder={placeholder}
+      placeholder="Введите количество"
       onChange={onChange}
+      value={emptyValue ? '' : null}
     />
   );
 };

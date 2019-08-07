@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchCurrencies } from '../reducers/currencies/actions';
-import Home from './Home';
-import Exchange from './Exchange';
+import Home from '../pages/Home';
+import Exchange from '../pages/Exchange';
 
 class App extends React.Component {
   componentDidMount() {
