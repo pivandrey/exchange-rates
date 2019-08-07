@@ -1,0 +1,32 @@
+.converter {
+  background: $color0;
+  border-radius: $radius;
+  padding: 27px 21px;
+  max-width: 765px;
+  margin: 0 auto;
+}
+
+.converter__header {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $titleText;
+  line-height: 53px;
+  color: $color2;
+  margin-bottom: 73px;
+}
+
+.converter__content {
+  display: flex;
+  flex-direction: column;
+  .content__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}

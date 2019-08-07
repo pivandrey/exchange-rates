@@ -12,8 +12,12 @@ class History extends React.Component {
       <div className="history">
         <h2 className="history__header">История конвертации</h2>
         <div className="history__content">
-          {history.map(historyItem => (
-            <HistoryItem fromRate={historyItem.from} toRate={historyItem.to} />
+          {history.reverse().map(historyItem => (
+            <HistoryItem
+              fromRate={historyItem.fromRate}
+              toRate={historyItem.toRate}
+              key={historyItem.fromRate.value}
+            />
           ))}
         </div>
         <div className="history__link">

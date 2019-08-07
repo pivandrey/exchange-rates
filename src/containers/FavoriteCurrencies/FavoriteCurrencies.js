@@ -16,6 +16,7 @@ class FavoriteCurrencies extends React.Component {
               currencyTitle={currency.Name}
               currencyCode={currency.CharCode}
               currencyRate={currency.Value}
+              key={currency.ID}
             />
           ))}
         </div>

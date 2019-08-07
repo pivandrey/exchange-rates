@@ -17,8 +17,9 @@ store.subscribe(() => {
   sessionStorage.setItem(
     'reduxState',
     JSON.stringify({
-      markers: store.getState().markers,
-      tags: store.getState().tags
+      currencies: store.getState().currencies,
+      history: store.getState().history,
+      converter: store.getState().converter
     })
   );
 });

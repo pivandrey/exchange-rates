@@ -1,0 +1,18 @@
+.input-wrapper {
+  display: flex;
+  flex-basis: 45%;
+}
+
+.input {
+  border: 2px solid $color7;
+  box-sizing: border-box;
+  border-radius: $radius;
+  padding: 14px 38px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $primaryText;
+  line-height: 35px;
+  color: $color7;
+  width: 100%;
+}

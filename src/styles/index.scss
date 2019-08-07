@@ -1,2 +1,12 @@
 @import './variables';
+@import './normallize.scss';
+
 @import './App/App.scss';
+@import './Header/Header.scss';
+@import './History/History.scss';
+@import './HistoryItem/HistoryItem.scss';
+@import './FavoriteCurrencies/FavoriteCurrencies.scss';
+@import './PrimaryRate/PrimaryRate.scss';
+@import './Converter/Converter.scss';
+@import './Input/Input.scss';
+@import './InputSelect/InputSelect.scss';

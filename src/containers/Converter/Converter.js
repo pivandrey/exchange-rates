@@ -1,53 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { changeCurrency, changeValue } from '../../reducers/converter/actions';
+import { createHistoryExchange } from '../../reducers/history/actions';
+import { debounce } from '../../helpers';
 import Input from '../../components/Input';
 import InputSelect from '../../components/InputSelect';
 
 class Converter extends React.Component {
-  state = {
-    fromSelect: 'RUB',
-    toSelect: 'RUB',
-    fromValue: '',
-    toValue: '',
-    emptyValue: false
-  };
-
-  calculateRate = count => {
-    const { currencies } = this.props;
-    const { fromSelect, toSelect } = this.state;
-
-    const fromRate = currencies[fromSelect].Value;
-    const toRate = currencies[toSelect].Value;
-
-    const result = (count * fromRate) / toRate;
-    return result;
-  };
+  constructor(props) {
+    super(props);
+    this.createHistory = debounce(this.createHistory, 1000);
+  }
 
   handleChangeInput = (e, reverse = false) => {
-    this.setState({
-      emptyValue: false
-    });
+    const { changeValue } = this.props;
     const value = e.currentTarget.value;
-    console.log(value);
-    const result = this.calculateRate(value);
-    this.setState({
-      fromValue: value,
-      toValue: result
-    });
+
+    changeValue(value, reverse);
+    this.createHistory();
   };
 
-  handleChangeInputSelect = (e, field) => {
+  createHistory() {
+    const { createHistoryExchange } = this.props;
+    createHistoryExchange();
+  }
+
+  handleChangeInputSelect = (e, direction) => {
+    const { changeCurrency } = this.props;
     const value = e.currentTarget.value;
-    this.setState({
-      [field]: value,
-      emptyValue: true
-    });
+
+    changeCurrency(value, direction);
   };
 
   render() {
-    const { currencies } = this.props;
-    const { emptyValue } = this.state;
+    const { currencies, fromValue, toValue } = this.props;
 
     return (
       <div className="converter">
@@ -56,25 +44,25 @@ class Converter extends React.Component {
           <div className="content__item">
             <Input
               name="from"
-              emptyValue={emptyValue}
+              value={fromValue}
               onChange={e => this.handleChangeInput(e)}
             />
             <InputSelect
               name="fromSelect"
               options={currencies}
-              onChange={e => this.handleChangeInputSelect(e, 'fromSelect')}
+              onChange={e => this.handleChangeInputSelect(e, 'fromRate')}
             />
           </div>
           <div className="content__item">
             <Input
               name="to"
-              emptyValue={emptyValue}
+              value={toValue}
               onChange={e => this.handleChangeInput(e, true)}
             />
             <InputSelect
               name="toSelect"
               options={currencies}
-              onChange={e => this.handleChangeInputSelect(e, 'toSelect')}
+              onChange={e => this.handleChangeInputSelect(e, 'toRate')}
             />
           </div>
         </div>
@@ -84,7 +72,22 @@ class Converter extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  currencies: state.currencies.currencies
+  currencies: state.currencies.currencies,
+  fromValue: state.converter.fromRate.value,
+  toValue: state.converter.toRate.value
 });
 
-export default connect(mapStateToProps)(Converter);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      changeCurrency,
+      changeValue,
+      createHistoryExchange
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Converter);
