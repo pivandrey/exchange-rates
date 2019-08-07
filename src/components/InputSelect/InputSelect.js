@@ -1,16 +1,17 @@
 import React from 'react';
 
-const InputSelect = ({ onChange, options, name }) => {
+const InputSelect = ({ onChange, options, name, currentCurrency }) => {
   const optionsArr = Object.values(options);
   return (
     <div className="input-select-wrapper">
-      <select name={name} className="input-select" onChange={onChange}>
+      <select
+        name={name}
+        className="input-select"
+        onChange={onChange}
+        defaultValue={currentCurrency}
+      >
         {optionsArr.map((item, index) => (
-          <option
-            key={`option_${item.ID}`}
-            defaultValue={item.CharCode === 'RUB'}
-            value={item.CharCode}
-          >
+          <option key={`option_${item.ID}`} value={item.CharCode}>
             {`${item.Name}, ${item.CharCode}`}
           </option>
         ))}
