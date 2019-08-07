@@ -25,10 +25,10 @@ export const changeValue = (value, reverse) => (dispatch, getState) => {
   if (reverse) {
     const result = (value * toRate) / fromRate;
     dispatch(setValue({ value, direction: 'toRate' }));
-    dispatch(setValue({ value: result, direction: 'fromRate' }));
+    dispatch(setValue({ value: result.toFixed(2), direction: 'fromRate' }));
   } else {
     const result = (value * fromRate) / toRate;
     dispatch(setValue({ value, direction: 'fromRate' }));
-    dispatch(setValue({ value: result, direction: 'toRate' }));
+    dispatch(setValue({ value: result.toFixed(2), direction: 'toRate' }));
   }
 };
