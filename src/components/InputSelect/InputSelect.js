@@ -6,7 +6,11 @@ const InputSelect = ({ onChange, options, name }) => {
     <div className="input-select-wrapper">
       <select name={name} className="input-select" onChange={onChange}>
         {optionsArr.map((item, index) => (
-          <option selected={item.CharCode === 'RUB'} value={item.CharCode}>
+          <option
+            key={`option_${item.ID}`}
+            defaultValue={item.CharCode === 'RUB'}
+            value={item.CharCode}
+          >
             {`${item.Name}, ${item.CharCode}`}
           </option>
         ))}

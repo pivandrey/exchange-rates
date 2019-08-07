@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import HistoryItem from '../../components/HistoryItem';
+import image from '../../assets/images/superman.png';
 
 class History extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class History extends React.Component {
         <div className="history__link">
           <Link to="/exchange">Конвертор валют</Link>
         </div>
+        <img src={image} className="history__image" alt="superman" />
       </div>
     );
   }

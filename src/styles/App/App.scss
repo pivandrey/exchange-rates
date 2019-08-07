@@ -1,9 +1,11 @@
 .root {
   background: $color1;
+  min-height: 100vh;
 }
 
 .root_content {
   margin: 0 auto;
   max-width: 1180px;
   padding: 60px 20px;
+  overflow: hidden;
 }

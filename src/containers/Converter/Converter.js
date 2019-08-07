@@ -23,7 +23,8 @@ class Converter extends React.Component {
   };
 
   createHistory() {
-    const { createHistoryExchange } = this.props;
+    const { createHistoryExchange, fromValue, toValue } = this.props;
+    console.log({ fromValue, toValue });
     createHistoryExchange();
   }
 

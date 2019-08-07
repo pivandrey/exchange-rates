@@ -1,10 +1,8 @@
 .history {
   border-radius: $radius;
   padding: 27px 21px;
-  background-image: url('/src/assets/images/superman.png');
   background-color: $color2;
-  background-position: center;
-  background-size: cover;
+  position: relative;
 }
 
 .history__header {
@@ -38,4 +36,10 @@
   > a {
     color: $color5;
   }
+}
+
+.history__image {
+  position: absolute;
+  top: -150px;
+  right: 0;
 }
