@@ -1,12 +1,16 @@
 import React from 'react';
+
 import Header from '../../components/Header';
+import FavoriteCurrencies from '../FavoriteCurrencies';
+import History from '../History';
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="home-page">
         <Header />
-        There Home content
+        <FavoriteCurrencies />
+        <History />
       </div>
     );
   }
