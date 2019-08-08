@@ -22,6 +22,7 @@ export const changeValue = (value, reverse) => (dispatch, getState) => {
   const fromRate = currencies[currencyFrom].Value;
   const toRate = currencies[currencyTo].Value;
 
+  /** если ввод значения был во втором поле, то результат записываем в первое поле */
   if (reverse) {
     const result = (value * toRate) / fromRate;
     dispatch(setValue({ value, direction: 'toRate' }));

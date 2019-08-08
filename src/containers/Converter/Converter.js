@@ -49,12 +49,12 @@ class Converter extends React.Component {
     const value = e.currentTarget.value;
 
     changeValue(value, reverse);
-    this.createHistory();
+    this.createHistory(reverse);
   };
 
-  createHistory = () => {
+  createHistory = reverse => {
     const { createHistoryExchange } = this.props;
-    createHistoryExchange();
+    createHistoryExchange(reverse);
   };
 
   handleChangeInputSelect = (e, direction) => {

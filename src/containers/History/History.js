@@ -26,7 +26,7 @@ class History extends React.Component {
             <HistoryItem
               fromRate={historyItem.fromRate}
               toRate={historyItem.toRate}
-              key={historyItem.fromRate.value}
+              key={historyItem.id}
             />
           ))}
         </div>
