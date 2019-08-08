@@ -1,9 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import HistoryItem from '../../components/HistoryItem';
 import image from '../../assets/images/superman.png';
+
+const propTypes = {
+  history: PropTypes.array.isRequired
+};
+
+const defaultProps = {
+  history: []
+};
 
 class History extends React.Component {
   render() {
@@ -29,6 +38,9 @@ class History extends React.Component {
     );
   }
 }
+
+History.propTypes = propTypes;
+History.defaultProps = defaultProps;
 
 const mapStateToProps = (state, props) => ({
   history: state.history.history

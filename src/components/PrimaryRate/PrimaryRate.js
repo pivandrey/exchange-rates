@@ -1,4 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  currencyTitle: PropTypes.string,
+  currencyRate: PropTypes.number,
+  currencyCode: PropTypes.string
+};
 
 const getTitle = title => title.substr(0, 10);
 
@@ -14,5 +21,7 @@ const PrimaryRate = ({ currencyTitle, currencyRate, currencyCode }) => {
     </div>
   );
 };
+
+PrimaryRate.propTypes = propTypes;
 
 export default PrimaryRate;

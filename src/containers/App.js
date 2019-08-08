@@ -2,10 +2,19 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { fetchCurrencies } from '../reducers/currencies/actions';
 import Home from '../pages/Home';
 import Exchange from '../pages/Exchange';
+
+const propTypes = {
+  fetchCurrencies: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  fetchCurrencies: () => {}
+};
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,6 +35,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

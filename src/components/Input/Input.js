@@ -1,4 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  value: '',
+  onChange: () => {}
+};
 
 const Input = ({ onChange, name, value }) => {
   return (
@@ -14,5 +26,8 @@ const Input = ({ onChange, name, value }) => {
     </div>
   );
 };
+
+Input.propTypes = propTypes;
+Input.defaultProps = defaultProps;
 
 export default Input;
