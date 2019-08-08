@@ -29,9 +29,7 @@ export default handleActions(
       };
     },
     [TYPES.CLEAR_VALUE]: (state, action) => ({
-      ...state,
-      fromRate: { ...state.fromRate, value: '' },
-      toRate: { ...state.toRate, value: '' }
+      ...initialState
     })
   },
   initialState

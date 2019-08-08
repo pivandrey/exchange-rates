@@ -22,7 +22,7 @@ const InputSelect = ({ onChange, options, name, currentCurrency }) => {
         name={name}
         className="input-select"
         onChange={onChange}
-        defaultValue={currentCurrency}
+        defaultValue={'RUB'}
       >
         {optionsArr.map((item, index) => (
           <option key={`option_${item.ID}`} value={item.CharCode}>
