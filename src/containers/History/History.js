@@ -17,12 +17,13 @@ const defaultProps = {
 class History extends React.Component {
   render() {
     const { history } = this.props;
+    const reverseHistory = history.concat([]).reverse();
 
     return (
       <div className="history">
         <h2 className="history__header">История конвертации</h2>
         <div className="history__content">
-          {history.reverse().map(historyItem => (
+          {reverseHistory.map(historyItem => (
             <HistoryItem
               fromRate={historyItem.fromRate}
               toRate={historyItem.toRate}

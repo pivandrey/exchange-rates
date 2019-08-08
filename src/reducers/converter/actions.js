@@ -6,9 +6,34 @@ export const setCurrency = createAction(TYPES.SET_CURRENCY);
 export const setValue = createAction(TYPES.SET_VALUE);
 export const clearValue = createAction(TYPES.CLEAR_VALUE);
 
-export const changeCurrency = (value, direction) => dispatch => {
+export const changeCurrency = (value, direction) => (dispatch, getState) => {
   dispatch(setCurrency({ value, direction }));
-  dispatch(clearValue());
+
+  const state = getState();
+  const currencies = state.currencies.currencies;
+  const {
+    fromRate: { currency: currencyFrom, value: valueFrom },
+    toRate: { currency: currencyTo, value: valueTo }
+  } = state.converter;
+
+  const fromRate = currencies[currencyFrom].Value;
+  const toRate = currencies[currencyTo].Value;
+
+  if (direction === 'toRate') {
+    if (!valueTo) {
+      return;
+    }
+    const result = (valueTo * toRate) / fromRate;
+    dispatch(setValue({ value: valueTo, direction: 'toRate' }));
+    dispatch(setValue({ value: result.toFixed(2), direction: 'fromRate' }));
+  } else {
+    if (!valueFrom) {
+      return;
+    }
+    const result = (valueFrom * fromRate) / toRate;
+    dispatch(setValue({ value: valueFrom, direction: 'fromRate' }));
+    dispatch(setValue({ value: result.toFixed(2), direction: 'toRate' }));
+  }
 };
 
 export const changeValue = (value, reverse) => (dispatch, getState) => {

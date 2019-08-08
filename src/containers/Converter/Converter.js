@@ -62,6 +62,7 @@ class Converter extends React.Component {
     const value = e.currentTarget.value;
 
     changeCurrency(value, direction);
+    this.createHistory();
   };
 
   render() {
