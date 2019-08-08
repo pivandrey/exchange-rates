@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import {
   changeCurrency,
@@ -11,6 +12,26 @@ import { createHistoryExchange } from '../../reducers/history/actions';
 import { debounce } from '../../helpers';
 import Input from '../../components/Input';
 import InputSelect from '../../components/InputSelect';
+
+const propTypes = {
+  currencies: PropTypes.object.isRequired,
+  fromValue: PropTypes.string,
+  toValue: PropTypes.string,
+  fromCurrency: PropTypes.string,
+  toCurrency: PropTypes.string,
+  changeCurrency: PropTypes.func.isRequired,
+  changeValue: PropTypes.func.isRequired,
+  createHistoryExchange: PropTypes.func.isRequired,
+  clearValue: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  currencies: [],
+  changeCurrency: () => {},
+  changeValue: () => {},
+  createHistoryExchange: () => {},
+  clearValue: () => {}
+};
 
 class Converter extends React.Component {
   constructor(props) {
@@ -28,12 +49,12 @@ class Converter extends React.Component {
     const value = e.currentTarget.value;
 
     changeValue(value, reverse);
-    this.createHistory();
+    this.createHistory(reverse);
   };
 
-  createHistory = () => {
+  createHistory = reverse => {
     const { createHistoryExchange } = this.props;
-    createHistoryExchange();
+    createHistoryExchange(reverse);
   };
 
   handleChangeInputSelect = (e, direction) => {
@@ -87,6 +108,9 @@ class Converter extends React.Component {
     );
   }
 }
+
+Converter.propTypes = propTypes;
+Converter.defaultProps = defaultProps;
 
 const mapStateToProps = (state, props) => ({
   currencies: state.currencies.currencies,

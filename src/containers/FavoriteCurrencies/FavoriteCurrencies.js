@@ -1,7 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import PrimaryRate from '../../components/PrimaryRate';
+
+const propTypes = {
+  favorites: PropTypes.array.isRequired
+};
+
+const defaultProps = {
+  favorites: []
+};
 
 class FavoriteCurrencies extends React.Component {
   render() {
@@ -24,6 +33,9 @@ class FavoriteCurrencies extends React.Component {
     );
   }
 }
+
+FavoriteCurrencies.propTypes = propTypes;
+FavoriteCurrencies.defaultProps = defaultProps;
 
 const mapStateToProps = (state, props) => ({
   favorites: state.currencies.favorites
