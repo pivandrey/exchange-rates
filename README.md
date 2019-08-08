@@ -1,4 +1,4 @@
-## Exchange Rates
+# Exchange Rates
 
 This application shows the current rate to major currencies and allows you to convert currencies.
 You can enter a value both in the upper and in the lower fields.
