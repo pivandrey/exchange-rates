@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 70px;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 40px;
+    justify-content: center;
+  }
 }
 
 .header__text {
@@ -15,8 +19,11 @@
   font-style: normal;
   font-weight: normal;
   font-size: $headerText;
-  line-height: 94px;
   color: $color0;
   margin: 0;
   margin-left: 20px;
+  @media screen and (max-width: $mobile) {
+    font-size: $headerTextMobile;
+    margin-left: 10px;
+  }
 }

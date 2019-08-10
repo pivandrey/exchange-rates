@@ -8,4 +8,7 @@
   max-width: 1180px;
   padding: 60px 20px;
   overflow: hidden;
+  @media screen and (max-width: $mobile) {
+    padding: 30px 15px;
+  }
 }

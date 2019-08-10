@@ -3,6 +3,10 @@
   border-radius: $radius;
   padding: 27px 21px;
   margin-bottom: 95px;
+  @media screen and (max-width: $mobile) {
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
 }
 
 .favorite-currencies__header {
@@ -10,9 +14,12 @@
   font-style: normal;
   font-weight: normal;
   font-size: $titleText;
-  line-height: 53px;
   color: $color2;
   margin-bottom: 40px;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 20px;
+    font-size: $titleTextMobile;
+  }
 }
 
 .favorite-currencies__content {
@@ -20,4 +27,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }

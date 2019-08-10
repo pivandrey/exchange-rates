@@ -3,6 +3,13 @@
   flex-direction: column;
   align-items: center;
   flex-basis: 30%;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 10px;
+    width: 100%;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .primary-rate__currency-block {
@@ -10,6 +17,15 @@
   padding: 14px 38px;
   border-bottom: 3px solid $color8;
   margin-bottom: 13px;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 8px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .currency-block__text {
@@ -17,9 +33,11 @@
   font-style: normal;
   font-weight: normal;
   font-size: $primaryText;
-  line-height: 35px;
-
   color: $color0;
+  @media screen and (max-width: $mobile) {
+    font-size: $primaryTextMobile;
+    text-align: center;
+  }
 }
 
 .primary-rate__currency-rate {
@@ -27,6 +45,8 @@
   font-style: normal;
   font-weight: normal;
   font-size: $primaryText;
-  line-height: 35px;
   color: $color4;
+  @media screen and (max-width: $mobile) {
+    font-size: $primaryTextMobile;
+  }
 }

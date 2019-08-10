@@ -1,6 +1,10 @@
 .input-wrapper {
   display: flex;
   flex-basis: 45%;
+  @media screen and (max-width: $mobile) {
+    flex-basis: 100%;
+    margin-bottom: 12px;
+  }
 }
 
 .input {
@@ -12,7 +16,10 @@
   font-style: normal;
   font-weight: normal;
   font-size: $primaryText;
-  line-height: 35px;
   color: $color7;
   width: 100%;
+  @media screen and (max-width: $mobile) {
+    font-size: $titleTextMobile;
+    padding: 10px 16px;
+  }
 }

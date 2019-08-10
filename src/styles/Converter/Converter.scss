@@ -11,9 +11,12 @@
   font-style: normal;
   font-weight: normal;
   font-size: $titleText;
-  line-height: 53px;
   color: $color2;
   margin-bottom: 73px;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 20px;
+    font-size: $titleTextMobile;
+  }
 }
 
 .converter__content {
@@ -27,6 +30,12 @@
     margin-bottom: 15px;
     &:nth-last-child(1) {
       margin-bottom: 0;
+    }
+    @media screen and (max-width: $mobile) {
+      flex-direction: column;
+      background-color: $color6;
+      border-radius: 20px;
+      padding: 10px;
     }
   }
 }

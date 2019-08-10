@@ -323,16 +323,22 @@ template {
   display: flex;
   align-items: center;
   margin-bottom: 70px; }
+  @media screen and (max-width: 768px) {
+    .header {
+      margin-bottom: 40px; } }
 
 .header__text {
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 80px;
-  line-height: 94px;
   color: #f6f6f5;
   margin: 0;
   margin-left: 20px; }
+  @media screen and (max-width: 768px) {
+    .header__text {
+      font-size: 40px;
+      margin-left: 10px; } }
 
 .history {
   border-radius: 10px;

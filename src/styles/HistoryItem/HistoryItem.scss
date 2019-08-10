@@ -3,6 +3,8 @@
   font-style: normal;
   font-weight: normal;
   font-size: $primaryText;
-  line-height: 35px;
   color: $color0;
+  @media screen and (max-width: $mobile) {
+    font-size: $primaryTextMobile;
+  }
 }

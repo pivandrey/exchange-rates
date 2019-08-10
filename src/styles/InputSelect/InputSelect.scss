@@ -3,6 +3,9 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
+  @media screen and (max-width: $mobile) {
+    flex-basis: 100%;
+  }
   &::after {
     content: '▼';
     padding: 0 8px;
@@ -17,6 +20,9 @@
     pointer-events: none;
     box-sizing: border-box;
     color: $color9;
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -29,11 +35,14 @@
   font-style: normal;
   font-weight: normal;
   font-size: $primaryText;
-  line-height: 35px;
   color: $color7;
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
+  @media screen and (max-width: $mobile) {
+    font-size: $titleTextMobile;
+    padding: 10px 16px;
+  }
 }
